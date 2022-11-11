@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -15,7 +16,10 @@ export const Wrapper = styled.div`
     top: 0;
     height: 100%;
     width: 10px;
-    background-color: ${({ theme }) => theme.colors.green};
+    background-color: ${({ theme, isIncome }) => {
+      if (isIncome) return theme.colors.green;
+      return theme.colors.red;
+    }};
   }
 `;
 

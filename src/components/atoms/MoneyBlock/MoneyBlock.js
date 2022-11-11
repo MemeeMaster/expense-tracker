@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TrackerContext } from "../../../providers/TrackerContext";
 import { Wrapper, Header, Money } from "./MoneyBlock.styles";
 
 const MoneyBlock = ({ title, isIncome }) => {
+  const { state } = useContext(TrackerContext);
+  const { income, expense } = state;
   return (
     <Wrapper>
       <Header>{title}</Header>
-      <Money isIncome={isIncome}>500.00</Money>
+      <Money isIncome={isIncome}>{isIncome ? income : expense}</Money>
     </Wrapper>
   );
 };
